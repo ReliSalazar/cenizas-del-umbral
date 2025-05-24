@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Terminal from "../../components/Terminal/Terminal.svelte";
+
+const lines = [
+  {
+    parts: [
+      {
+        text: "Estado del sistema: ",
+        class: "text-cyan-400 font-bold",
+        speed: 30,
+      },
+    ],
+    delayAfter: 200,
+  },
+  {
+    parts: [
+      {
+        text: "▸ Memoria: 32GB ",
+        class: "font-mono",
+        speed: 20,
+      },
+      {
+        text: "[OK]",
+        class: "text-green-500 font-bold",
+        animation: "pulse",
+        speed: 30,
+      },
+    ],
+  },
+  {
+    parts: [
+      {
+        text: "▸ Red: 192.168.1.42 ",
+        class: "font-mono",
+        speed: 20,
+      },
+      {
+        text: "[ACTIVO]",
+        class: "text-green-500 blink",
+        speed: 30,
+      },
+    ],
+  },
+  {
+    parts: [
+      {
+        text: "▸ Seguridad: ",
+        class: "font-mono",
+        speed: 20,
+      },
+      {
+        text: "NIVEL 4",
+        class: "text-red-500",
+        speed: 40,
+        animation: "pulse",
+      },
+    ],
+    delayAfter: 800,
+  },
+  {
+    parts: [
+      {
+        text: "¡Sistema operativo! ",
+        class: "text-green-500 font-bold",
+        speed: 30,
+      },
+      {
+        text: "✔",
+        class: "text-green-500",
+        speed: 100,
+        animation: "blink",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <article class="prose prose-invert max-w-none">
+    <p><strong>[Archivo recuperado // Última transmisión: Lambda-3]</strong></p>
+    <blockquote>
+      <p>
+        <strong>Unidad Lambda-3</strong><br />
+        <strong>Fecha desconocida</strong><br />
+        <strong>Transmisión clase: Epitafio (autoactivada)</strong>
+      </p>
+    </blockquote>
+    <p>Aún mantengo la señal. Las balizas están en loop...</p>
+
+    <div class="border border-cyan-400/20 p-4 my-4 bg-gray-800/50">
+      <pre
+        class="text-cyan-300 font-mono text-sm">Lambda-3> Sistema comprometido...</pre>
+    </div>
+
+    <h2 class="glitch text-cyan-400 my-4">IA_FRAGMENTADA</h2>
+
+    <Terminal client:load class="my-4" lines={lines} />
+
+    <p class="mt-6 text-gray-300">[... transmisión interrumpida]</p>
+  </article>
+</BaseLayout>

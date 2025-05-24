@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #222;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(34, 211, 238, 0.5);
+}
+
+.glitch {
+  animation: glitch 1s linear infinite;
+}
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 0 #ff00ff;
+  }
+  20% {
+    text-shadow: -2px 0 #00ffff;
+  }
+  100% {
+    text-shadow: none;
+  }
+}
