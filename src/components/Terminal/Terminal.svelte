@@ -4,6 +4,7 @@
   export let lines = [];
   export let prompt = "Lambda-3>";
   export let baseSpeed = 30;
+  export let lastPrompt = false;
 
   let displayedLines = [];
   let cursorVisible = true;
@@ -101,10 +102,14 @@
       </div>
     {/each}
 
-    <div class="cursor-line">
-      <span class="prompt">{prompt}</span>
-      <span class="cursor" class:invisible={!cursorVisible || isTyping}>_</span>
-    </div>
+    {#if lastPrompt}
+      <div class="cursor-line">
+        <span class="prompt text-violet-400">{prompt}</span>
+        <span class="cursor" class:invisible={!cursorVisible || isTyping}
+          >_</span
+        >
+      </div>
+    {/if}
   </div>
 </div>
 
@@ -118,9 +123,11 @@
     overflow: hidden;
     font-family: "Courier New", monospace;
     padding: 1rem;
-    animation: pulse-glow 3s ease-in-out infinite;
+    animation: pulse-glow 6s ease-in-out infinite;
     font-size: 0.875rem;
-    /* color: #67e8f9; */
+    color: #a5f3fc;
+    line-height: 1.4;
+    background-color: rgba(15, 23, 42, 0.9);
   }
 
   .terminal::before {
@@ -130,7 +137,7 @@
     background: radial-gradient(
       ellipse at center,
       rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.5) 100%
+      rgba(0, 0, 0, 0.3) 100%
     );
     z-index: 1;
     pointer-events: none;
@@ -140,12 +147,12 @@
     0%,
     100% {
       box-shadow:
-        0 0 8px rgba(74, 222, 255, 0.6),
+        0 0 8px rgba(74, 222, 255, 0.4),
         inset 0 0 10px rgba(0, 0, 0, 0.8);
     }
     50% {
       box-shadow:
-        0 0 16px rgba(74, 222, 255, 0.8),
+        0 0 12px rgba(74, 222, 255, 0.5),
         inset 0 0 12px rgba(0, 0, 0, 0.6);
     }
   }
@@ -153,7 +160,8 @@
   .terminal-output {
     margin: 0;
     padding: 0;
-    animation: crt-flicker 10s linear infinite;
+    animation: crt-flicker 20s linear infinite;
+    text-shadow: 0 0 4px rgba(74, 222, 255, 0.3);
   }
 
   @keyframes crt-flicker {
@@ -161,17 +169,8 @@
     100% {
       opacity: 1;
     }
-    2%,
-    60%,
-    64%,
-    68% {
-      opacity: 0.95;
-    }
-    3%,
-    61%,
-    65%,
-    69% {
-      opacity: 0.85;
+    50% {
+      opacity: 0.98;
     }
   }
 
@@ -256,15 +255,14 @@
     background: repeating-linear-gradient(
       to bottom,
       transparent 0%,
-      rgba(0, 0, 0, 0.2) 50%,
+      rgba(255, 255, 255, 0.08) 50%,
       transparent 100%
     );
-    background-size: 100% 4px;
-    animation: scan 0.1s linear infinite;
+    background-size: 100% 2px;
     pointer-events: none;
     z-index: 2;
-    /* mix-blend-mode: overlay; */
-    mix-blend-mode: screen;
+    mix-blend-mode: overlay;
+    opacity: 0.5;
   }
 
   @keyframes scan {

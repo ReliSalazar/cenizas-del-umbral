@@ -72,6 +72,61 @@ const lines = [
         animation: "blink",
       },
     ],
+    delayAfter: 1000,
+  },
+  {
+    parts: [
+      {
+        text: "..........",
+        class: "font-mono animate-pulse",
+        speed: 100,
+      },
+    ],
+  },
+  {
+    parts: [
+      {
+        text: "ALERTA",
+        class: "text-red-500 font-bold",
+        speed: 30,
+      },
+    ],
+  },
+  {
+    parts: [
+      {
+        text: "ANOMALIA EN EL SISTEMA",
+        class: "text-red-500 font-bold",
+        speed: 80,
+      },
+    ],
+  },
+  {
+    parts: [
+      {
+        text: "SISTEMA COMPROMETIDO",
+        class: "text-red-500 font-bold",
+        speed: 50,
+      },
+    ],
+  },
+  {
+    parts: [
+      {
+        text: "SISTEMA COMPROMETIDO",
+        class: "text-red-500 font-bold glitch",
+        speed: 50,
+      },
+    ],
+  },
+  {
+    parts: [
+      {
+        text: "[... transmisión interrumpida]",
+        class: "text-red-500 font-bold",
+        speed: 0,
+      },
+    ],
   },
 ];
 ---
@@ -88,15 +143,8 @@ const lines = [
     </blockquote>
     <p>Aún mantengo la señal. Las balizas están en loop...</p>
 
-    <div class="border border-cyan-400/20 p-4 my-4 bg-gray-800/50">
-      <pre
-        class="text-cyan-300 font-mono text-sm">Lambda-3> Sistema comprometido...</pre>
-    </div>
+    <h2 class="glitch text-cyan-400 my-4">efecto glitch</h2>
 
-    <h2 class="glitch text-cyan-400 my-4">IA_FRAGMENTADA</h2>
-
-    <Terminal client:load class="my-4" lines={lines} />
-
-    <p class="mt-6 text-gray-300">[... transmisión interrumpida]</p>
+    <Terminal client:load class="my-4" lines={lines} lastPrompt />
   </article>
 </BaseLayout>

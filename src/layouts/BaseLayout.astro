@@ -10,7 +10,9 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
   </head>
-  <body class="bg-gray-900 text-gray-100 font-mono">
-    <slot />
+  <body class="bg-neutral-900 text-gray-100 font-mono h-full py-5 px-2">
+    <main class="bg-neutral-800 mx-auto max-w-7xl p-4 sm:px-6 lg:px-8 h-full">
+      <slot />
+    </main>
   </body>
 </html>
