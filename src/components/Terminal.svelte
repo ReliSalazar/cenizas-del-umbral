@@ -83,7 +83,7 @@
   });
 </script>
 
-<div class="terminal bg-zinc-900">
+<div class="terminal bg-darker-bg">
   <div class="scanlines"></div>
 
   <div class="terminal-output">
@@ -116,7 +116,7 @@
 <style>
   .terminal {
     position: relative;
-    border: 1px solid rgba(74, 222, 255, 0.4);
+    border: 1px solid var(--border-color);
     box-shadow:
       0 0 8px rgba(74, 222, 255, 0.6),
       inset 0 0 10px rgba(0, 0, 0, 0.8);
@@ -125,7 +125,6 @@
     padding: 1rem;
     animation: pulse-glow 6s ease-in-out infinite;
     font-size: 0.875rem;
-    color: #a5f3fc;
     line-height: 1.4;
     background-color: rgba(15, 23, 42, 0.9);
   }
@@ -193,6 +192,7 @@
 
   .prompt {
     display: inline;
+    color: var(--primary-accent);
     margin-right: 0.5em;
   }
 
@@ -222,11 +222,13 @@
   }
 
   .animate-pulse {
-    animation: pulse 2s infinite;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    color: var(--primary-accent);
   }
 
   .animate-blink {
-    animation: blink-fast 0.5s infinite;
+    animation: blink 1s step-end infinite;
+    color: var(--secondary-accent);
   }
 
   @keyframes pulse {

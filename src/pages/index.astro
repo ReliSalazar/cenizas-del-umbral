@@ -5,9 +5,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <BaseLayout>
   <div class="max-w-4xl mx-auto">
     <div
-      class="bg-gray-900/60 backdrop-blur-sm border border-gray-800/50 p-6 md:p-8 shadow-xl"
+      class="bg-card-bg/80 backdrop-blur-sm border border-border-color p-6 md:p-8 shadow-xl"
     >
-      <h1 class="text-3xl font-bold text-cyan-300 mb-8 text-center">
+      <h1 class="text-3xl font-bold text-primary-accent mb-8 text-center">
         El Umbral del Polvo
       </h1>
       <ul class="space-y-6">
@@ -15,23 +15,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <a
             href="/relatos/lambda-3"
             class="block p-4 transition-all duration-300
-                   bg-gray-800/50 hover:bg-gray-800/80
-                   border border-gray-700/50 hover:border-cyan-500/50
-                   hover:shadow-lg hover:shadow-cyan-500/10"
+                   bg-card-bg/60 hover:bg-card-bg/80
+                   border border-border-color hover:border-primary-accent/50
+                   hover:shadow-lg hover:shadow-highlight"
           >
             <div class="flex items-center justify-between">
               <div>
                 <h2
-                  class="text-xl font-medium text-cyan-300 group-hover:text-cyan-200 transition-colors"
+                  class="text-xl font-medium text-primary-accent group-hover:text-secondary-accent transition-colors"
                 >
                   Lambda-3
                 </h2>
-                <p class="text-sm text-gray-400 mt-1">
+                <p class="text-sm text-text-secondary mt-1">
                   Última transmisión: [ARCHIVO RECUPERADO]
                 </p>
               </div>
               <span
-                class="text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                class="text-secondary-accent opacity-0 group-hover:opacity-100 transition-opacity"
               >
                 →
               </span>
@@ -40,8 +40,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </li>
       </ul>
 
-      <div class="mt-12 pt-6 border-t border-gray-800 text-center">
-        <p class="text-gray-400 text-sm">
+      <div class="mt-12 pt-6 border-t border-border-color text-center">
+        <p class="text-text-secondary text-sm">
           Más relatos en desarrollo. Vuelve pronto para nuevas historias.
         </p>
       </div>

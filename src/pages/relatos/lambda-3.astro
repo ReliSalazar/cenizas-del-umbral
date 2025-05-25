@@ -7,7 +7,7 @@ const lines = [
     parts: [
       {
         text: "Estado del sistema: ",
-        class: "text-cyan-400 font-bold",
+        class: "text-primary-accent font-bold",
         speed: 30,
       },
     ],
@@ -51,7 +51,7 @@ const lines = [
       },
       {
         text: "NIVEL 4",
-        class: "text-red-500",
+        class: "text-tertiary-accent",
         speed: 40,
         animation: "pulse",
       },
@@ -62,7 +62,7 @@ const lines = [
     parts: [
       {
         text: "¡Sistema operativo! ",
-        class: "text-green-500 font-bold",
+        class: "text-primary-accent font-bold",
         speed: 30,
       },
       {
@@ -123,31 +123,36 @@ const lines = [
     parts: [
       {
         text: "[... transmisión interrumpida]",
-        class: "text-red-500 font-bold",
+        class: "text-tertiary-accent font-bold",
         speed: 0,
       },
     ],
   },
 ];
-
 ---
 
 <PostLayout>
   <div class="prose prose-invert max-w-none">
     <header class="mb-8">
-      <p class="text-sm text-gray-400 mb-2">[Archivo recuperado // Última transmisión: Lambda-3]</p>
-      <h1 class="text-3xl md:text-4xl font-bold text-cyan-300 mb-4">Lambda-3</h1>
-      <div class="border-l-2 border-cyan-500 pl-4 my-6">
-        <p class="text-gray-300">
+      <p class="text-sm text-text-secondary mb-2">
+        [Archivo recuperado // Última transmisión: Lambda-3]
+      </p>
+      <h1 class="text-3xl md:text-4xl font-bold text-primary-accent mb-4">
+        Lambda-3
+      </h1>
+      <div class="border-l-2 border-primary-accent pl-4 my-6">
+        <p class="text-text-primary">
           <span class="block font-bold">Unidad Lambda-3</span>
           <span class="block text-sm">Fecha desconocida</span>
-          <span class="block text-xs text-gray-400 italic">Transmisión clase: Epitafio (autoactivada)</span>
+          <span class="block text-xs text-text-secondary italic"
+            >Transmisión clase: Epitafio (autoactivada)</span
+          >
         </p>
       </div>
     </header>
 
     <div class="space-y-6">
-      <p class="text-gray-300 leading-relaxed">
+      <p class="text-text-primary leading-relaxed">
         Aún mantengo la señal. Las balizas están en loop...
       </p>
 
@@ -155,9 +160,11 @@ const lines = [
         <Terminal client:load lines={lines} lastPrompt />
       </div>
 
-      <div class="mt-12 pt-6 border-t border-gray-800">
-        <h2 class="text-2xl font-bold text-cyan-300 mb-4">Continuará...</h2>
-        <p class="text-gray-400 text-sm">
+      <div class="mt-12 pt-6 border-t border-border-color">
+        <h2 class="text-2xl font-bold text-primary-accent mb-4">
+          Continuará...
+        </h2>
+        <p class="text-text-secondary text-sm">
           Este relato forma parte de la colección "Cenizas del Umbral".
         </p>
       </div>

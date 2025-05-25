@@ -5,7 +5,12 @@ const titleParts = title.split(" ");
 
 <header class="relative z-20">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between relative z-10">
+      <div
+        class="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
+        style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIHNjYWxlKDAuNzA3KSI+PHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIiBvcGFjaXR5PSIwLjUiLz48L3N2Zz4=');"
+      >
+      </div>
       <div class="flex items-center">
         <a
           href="/"
@@ -15,56 +20,60 @@ const titleParts = title.split(" ");
           <span
             class="inline-block transform transition-transform duration-500 group-hover:rotate-180"
           >
-            <span class="text-cyan-400">λ</span>
+            <span class="text-primary-accent">λ</span>
           </span>
-          <span
-            class="ml-2 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400"
-          >
-            {titleParts[0]}
+          <span class="ml-2 relative">
+            <span
+              class="bg-clip-text bg-gradient-to-r from-primary-accent to-secondary-accent"
+            >
+              {titleParts[0]}
+            </span>
           </span>
           <span class="text-gray-400 ml-1">
             {titleParts.slice(1).join(" ")}
           </span>
 
           <span
-            class="absolute -inset-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300 -z-10"
+            class="absolute -inset-2 bg-gradient-to-r from-primary-accent/20 to-secondary-accent/20 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300 -z-10"
           ></span>
         </a>
       </div>
 
-      <nav class="hidden md:flex items-center space-x-1">
+      <nav
+        class="hidden md:flex items-center space-x-1 bg-gradient-to-r from-darker-bg/80 via-card-bg/50 to-darker-bg/80 backdrop-blur-sm px-2 py-1"
+      >
         <a
           href="/"
-          class="px-4 py-2 text-sm font-medium hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-200 relative group"
+          class="px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary-accent hover:bg-primary-accent/10 transition-all duration-300 relative group"
         >
           Inicio
           <span
-            class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"
+            class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-accent transition-all duration-300 group-hover:w-full"
           ></span>
         </a>
         <a
           href="/relatos"
-          class="px-4 py-2 text-sm font-medium hover:bg-gray-800/50 hover:text-purple-300 transition-colors duration-200 relative group"
+          class="px-4 py-2 text-sm font-medium text-text-secondary hover:text-secondary-accent hover:bg-secondary-accent/10 transition-all duration-300 relative group"
         >
           Relatos
           <span
-            class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-400 transition-all duration-300 group-hover:w-full"
+            class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary-accent transition-all duration-300 group-hover:w-full"
           ></span>
         </a>
         <a
           href="#contacto"
-          class="px-4 py-2 text-sm font-medium hover:bg-gray-800/50 hover:text-pink-300 transition-colors duration-200 relative group"
+          class="px-4 py-2 text-sm font-medium text-text-secondary hover:text-tertiary-accent hover:bg-tertiary-accent/10 transition-all duration-300 relative group"
         >
           Contacto
           <span
-            class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"
+            class="absolute bottom-0 left-0 w-0 h-0.5 bg-tertiary-accent transition-all duration-300 group-hover:w-full"
           ></span>
         </a>
       </nav>
 
       <button
         id="mobile-menu-button"
-        class="md:hidden p-2 text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+        class="md:hidden p-2 text-text-secondary hover:text-text-primary hover:bg-card-bg/50 focus:outline-none focus:ring-2 focus:ring-primary-accent"
         aria-label="Menú de navegación"
       >
         <svg
@@ -84,24 +93,24 @@ const titleParts = title.split(" ");
 
     <div
       id="mobile-menu"
-      class="md:hidden hidden mt-4 pt-4 border-t border-gray-800"
+      class="md:hidden hidden mt-4 pt-4 border-t border-border-color/30 bg-card-bg/80 backdrop-blur-sm p-4 shadow-lg"
     >
       <div class="flex flex-col space-y-2">
         <a
           href="/"
-          class="px-3 py-2 text-base font-medium hover:bg-gray-800/50 hover:text-cyan-300 transition-colors duration-200"
+          class="px-4 py-3 text-base font-medium hover:bg-primary-accent/10 hover:text-primary-accent transition-colors duration-200"
         >
           Inicio
         </a>
         <a
           href="/relatos"
-          class="px-3 py-2 text-base font-medium hover:bg-gray-800/50 hover:text-purple-300 transition-colors duration-200"
+          class="px-4 py-3 text-base font-medium hover:bg-secondary-accent/10 hover:text-secondary-accent transition-colors duration-200"
         >
           Relatos
         </a>
         <a
           href="#contacto"
-          class="px-3 py-2 text-base font-medium hover:bg-gray-800/50 hover:text-pink-300 transition-colors duration-200"
+          class="px-4 py-3 text-base font-medium hover:bg-tertiary-accent/10 hover:text-tertiary-accent transition-colors duration-200"
         >
           Contacto
         </a>
@@ -132,9 +141,3 @@ const titleParts = title.split(" ");
     });
   </script>
 </header>
-
-<div class="relative flex justify-center">
-  <span class="px-2 bg-gray-900 text-sm text-gray-500">
-    <span class="text-cyan-400">//</span> Explora nuevos mundos
-  </span>
-</div>

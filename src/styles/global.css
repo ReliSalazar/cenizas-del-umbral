@@ -3,18 +3,54 @@
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Grotesk:wght@400;500;700&display=swap");
 
 :root {
-  --neon-blue: #00f7ff;
-  --neon-pink: #ff00ff;
-  --cyber-purple: #6e00ff;
-  --dark-bg: #0a0a1a;
-  --darker-bg: #050510;
-  --text-primary: #f0f0ff;
-  --text-secondary: #a0a0c0;
+  --primary-accent: #b4a5ff;
+  --secondary-accent: #d6a3fb;
+  --tertiary-accent: #ff9a8b;
+  --dark-bg: #12101b;
+  --darker-bg: #0c0a12;
+  --card-bg: #1e1a2a;
+  --text-primary: #f0e6ff;
+  --text-secondary: #b8aed6;
+  --border-color: #3a2e4a;
+  --highlight: rgba(180, 165, 255, 0.15);
+  --header-gradient: linear-gradient(
+    135deg,
+    #0c0a12 0%,
+    #1e1a2a 50%,
+    #2a1e3a 100%
+  );
+
+  --scrollbar-track: var(--darker-bg);
+  --scrollbar-thumb: var(--border-color);
+  --scrollbar-thumb-hover: var(--primary-accent);
 }
 
 html {
   scroll-behavior: smooth;
-  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border: 1px solid var(--darker-bg);
+    transition: background-color 0.2s;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover);
+  }
   font-family: "Space Grotesk", sans-serif;
   background: var(--darker-bg);
   color: var(--text-primary);
@@ -22,11 +58,7 @@ html {
 
 body {
   min-height: 100vh;
-  background: radial-gradient(
-    circle at center,
-    var(--dark-bg) 0%,
-    var(--darker-bg) 100%
-  );
+  background: var(--darker-bg);
   background-attachment: fixed;
   margin: 0;
   padding: 0;
@@ -40,39 +72,33 @@ h4,
 h5,
 h6 {
   font-family: "Share Tech Mono", monospace;
-  color: var(--neon-blue);
+  color: var(--primary-accent);
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: 500;
 }
 
 a {
-  color: var(--neon-blue);
+  color: var(--primary-accent);
   text-decoration: none;
   transition: all 0.3s ease;
   position: relative;
+  font-weight: 500;
 }
 
 a:hover {
-  color: var(--neon-pink);
-  text-shadow: 0 0 10px var(--neon-pink);
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--darker-bg);
+  color: var(--secondary-accent);
+  text-shadow: 0 0 8px rgba(199, 146, 234, 0.5);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--cyber-purple);
-  border-radius: 5px;
+  background: var(--border-color);
+  border-radius: 0;
+  border: 1px solid var(--primary-accent);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--neon-blue);
+  background: var(--primary-accent);
 }
 
 @keyframes scanline {
@@ -120,18 +146,19 @@ a:hover {
   animation: scanlines 5s steps(60) infinite;
 }
 
-/* Efecto de brillo en los bordes */
 .glow-border {
   position: relative;
-  box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--cyber-purple);
+  border: 1px solid var(--border-color);
   transition: all 0.3s ease;
+  background: var(--card-bg);
+  border-radius: 4px;
 }
 
 .glow-border:hover {
-  box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--cyber-purple);
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 15px var(--highlight);
 }
 
-/* Efecto de texto parpadeante */
 @keyframes blink {
   0%,
   100% {
@@ -146,40 +173,19 @@ a:hover {
   animation: blink 2s infinite;
 }
 
-/* Efecto de texto glitch */
 .glitch {
   position: relative;
-  animation: glitch 5s infinite;
+  animation: glitch 1s infinite;
 }
 
 @keyframes glitch {
   0% {
-    text-shadow: 0.05em 0 0 var(--neon-pink),
-      -0.05em -0.025em 0 var(--neon-blue);
+    text-shadow: 2px 0 #ff00ff;
   }
-  14% {
-    text-shadow: 0.05em 0 0 var(--neon-pink),
-      -0.05em -0.025em 0 var(--neon-blue);
-  }
-  15% {
-    text-shadow: -0.05em -0.025em 0 var(--neon-pink),
-      0.025em 0.025em 0 var(--neon-blue);
-  }
-  49% {
-    text-shadow: -0.05em -0.025em 0 var(--neon-pink),
-      0.025em 0.025em 0 var(--neon-blue);
-  }
-  50% {
-    text-shadow: 0.025em 0.05em 0 var(--neon-pink), 0.05em 0 0 var(--neon-blue),
-      0 -0.05em 0 var(--cyber-purple);
-  }
-  99% {
-    text-shadow: 0.025em 0.05em 0 var(--neon-pink), 0.05em 0 0 var(--neon-blue),
-      0 -0.05em 0 var(--cyber-purple);
+  20% {
+    text-shadow: -2px 0 #00ffff;
   }
   100% {
-    text-shadow: -0.025em 0 0 var(--neon-pink),
-      -0.025em -0.025em 0 var(--neon-blue),
-      -0.025em -0.05em 0 var(--cyber-purple);
+    text-shadow: none;
   }
 }
