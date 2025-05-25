@@ -1,5 +1,4 @@
 ---
-import Header from "../components/Header.astro";
 import "../styles/global.css";
 ---
 
@@ -11,14 +10,9 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <title>Cenizas del Umbral</title>
   </head>
-  <body class="bg-sky-500 text-neutral-100 font-mono flex flex-col">
-    <div class="py-5 flex-1">
-      <main
-        class="border-3 border-neutral-50 mx-auto max-w-7xl p-4 sm:px-6 lg:px-8 flex flex-col h-full gap-4"
-      >
-        <Header />
-        <slot />
-      </main>
-    </div>
+  <body class="bg-neutral-900 text-gray-100 font-mono h-full py-5 px-2">
+    <main class="bg-neutral-800 mx-auto max-w-7xl p-4 sm:px-6 lg:px-8 h-full">
+      <slot />
+    </main>
   </body>
 </html>

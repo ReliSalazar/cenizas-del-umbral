@@ -1,6 +1,6 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Terminal from "../../components/Terminal/Terminal.svelte";
+import PostLayout from "../../layouts/PostLayout.astro";
+import Terminal from "../../components/Terminal.svelte";
 
 const lines = [
   {
@@ -131,7 +131,7 @@ const lines = [
 ];
 ---
 
-<BaseLayout>
+<PostLayout>
   <article class="prose prose-invert max-w-none">
     <p><strong>[Archivo recuperado // Última transmisión: Lambda-3]</strong></p>
     <blockquote>
@@ -147,4 +147,4 @@ const lines = [
 
     <Terminal client:load class="my-4" lines={lines} lastPrompt />
   </article>
-</BaseLayout>
+</PostLayout>
