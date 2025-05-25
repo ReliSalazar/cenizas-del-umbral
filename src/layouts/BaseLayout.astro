@@ -64,16 +64,21 @@ const image = "/images/og-image.jpg";
     <div class="min-h-screen flex flex-col">
       <Header />
 
-      <div class="relative flex justify-center bg-darker-bg py-1">
-        <span class="text-sm font-bold" style="color: var(--primary-accent)">//</span>
-        <span class="text-sm text-text-secondary ml-1">Explora nuevos mundos</span>
+      <div class="relative flex justify-center">
+        <div class="bg-gray-900 backdrop-blur-sm shadow-xl px-2">
+          <span class="text-sm font-bold" style="color: var(--primary-accent)"
+            >//</span
+          >
+          <span class="text-sm text-text-secondary ml-1"
+            >Explora nuevos mundos</span
+          >
+        </div>
       </div>
 
       <main
         class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12"
       >
         <div class="max-w-4xl mx-auto w-full">
-          <!-- Contenido fuera del efecto de scanlines -->
           <slot name="outside-scanlines" />
 
           <div class="relative mt-8">
@@ -82,10 +87,8 @@ const image = "/images/og-image.jpg";
               style="background-size: 200% 200%; animation: gradient 15s ease infinite;"
             >
             </div>
-            <div
-              class="relative bg-card-bg/80 backdrop-blur-sm border border-border-color/30 shadow-2xl"
-            >
-              <div class="scanlines p-6 md:p-8">
+            <div class="relativebackdrop-blur-sm shadow-2xl">
+              <div class="scanlines">
                 <slot />
               </div>
             </div>
