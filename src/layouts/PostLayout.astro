@@ -1,17 +1,20 @@
 ---
 import "../styles/global.css";
+
+const title = "Cenizas del Umbral | Relato";
 ---
 
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <title>Cenizas del Umbral</title>
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body class="bg-neutral-900 text-gray-100 font-mono h-full py-5 px-2">
-    <main class="bg-neutral-800 mx-auto max-w-7xl p-4 sm:px-6 lg:px-8 h-full">
+  <body class="bg-neutral-900 text-gray-100 font-mono min-h-screen py-5 px-2">
+    <main class="bg-neutral-800/80 backdrop-blur-sm border border-gray-700/50 rounded-lg mx-auto max-w-4xl p-6 sm:p-8 h-full shadow-xl">
       <slot />
     </main>
   </body>

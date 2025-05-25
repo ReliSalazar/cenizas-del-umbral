@@ -40,10 +40,6 @@ h4,
 h5,
 h6 {
   font-family: "Share Tech Mono", monospace;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-top: 1.5em;
-  margin-bottom: 0.75em;
   color: var(--neon-blue);
   text-transform: uppercase;
   letter-spacing: 1px;

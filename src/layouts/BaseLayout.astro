@@ -2,10 +2,8 @@
 import Header from "../components/Header.astro";
 import "../styles/global.css";
 
-// Agregar metadatos para SEO
 const title = "Cenizas del Umbral | Relatos de Ciencia Ficción";
-const description =
-  "Explora mundos distantes, futuros alternativos y realidades paralelas a través de mis relatos de ciencia ficción.";
+const description = "Explora mundos distantes, futuros alternativos y realidades paralelas a través de mis relatos de ciencia ficción.";
 const image = "/images/og-image.jpg";
 ---
 
@@ -17,38 +15,30 @@ const image = "/images/og-image.jpg";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#050510" />
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(image, Astro.url.origin).href} />
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url.href} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta
-      property="twitter:image"
-      content={new URL(image, Astro.url.origin).href}
-    />
+    <meta property="twitter:image" content={new URL(image, Astro.url.origin).href} />
 
-    <!-- Preload fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Scripts para efectos -->
     <script>
       // Efecto de desplazamiento suave para enlaces internos
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", (e) => {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", e => {
           e.preventDefault();
           const href = anchor.getAttribute("href");
           if (!href) return;
@@ -57,33 +47,23 @@ const image = "/images/og-image.jpg";
           if (target) {
             target.scrollIntoView({
               behavior: "smooth",
-              block: "start",
+              block: "start"
             });
           }
         });
       });
     </script>
   </head>
-  <body
-    class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-gray-100 antialiased"
-  >
+  <body class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-gray-100 antialiased">
     <div class="min-h-screen flex flex-col">
       <Header />
 
-      <main
-        class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12"
-      >
+      <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         <div class="max-w-4xl mx-auto w-full">
           <div class="relative">
-            <!-- Efecto de borde resplandeente en el contenido -->
-            <div
-              class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg opacity-75 blur-lg group-hover:opacity-100 transition duration-300"
-            >
-            </div>
-            <div
-              class="relative bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 rounded-lg p-6 md:p-8 shadow-2xl"
-            >
-              <div class="scanlines">
+            <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg opacity-75 blur-lg group-hover:opacity-100 transition duration-300"></div>
+            <div class="relative bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 rounded-lg shadow-2xl">
+              <div class="scanlines p-2">
                 <slot />
               </div>
             </div>
@@ -94,14 +74,9 @@ const image = "/images/og-image.jpg";
       <footer class="py-8 text-center text-gray-400 text-sm">
         <div class="container mx-auto px-4">
           <div class="border-t border-gray-800 pt-6">
-            <p>
-              © {new Date().getFullYear()} Cenizas del Umbral. Todos los derechos
-              reservados.
-            </p>
+            <p>© {new Date().getFullYear()} Cenizas del Umbral. Todos los derechos reservados.</p>
             <p class="mt-2">
-              Creado con <span class="text-cyan-400">Astro</span> y <span
-                class="text-purple-400">Tailwind CSS</span
-              >
+              Creado con <span class="text-cyan-400">Astro</span> y <span class="text-purple-400">Tailwind CSS</span>
             </p>
           </div>
         </div>
