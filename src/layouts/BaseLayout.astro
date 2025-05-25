@@ -3,7 +3,8 @@ import Header from "../components/Header.astro";
 import "../styles/global.css";
 
 const title = "Cenizas del Umbral | Relatos de Ciencia Ficción";
-const description = "Explora mundos distantes, futuros alternativos y realidades paralelas a través de mis relatos de ciencia ficción.";
+const description =
+  "Explora mundos distantes, futuros alternativos y realidades paralelas a través de mis relatos de ciencia ficción.";
 const image = "/images/og-image.jpg";
 ---
 
@@ -30,15 +31,18 @@ const image = "/images/og-image.jpg";
     <meta property="twitter:url" content={Astro.url.href} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(image, Astro.url.origin).href} />
+    <meta
+      property="twitter:image"
+      content={new URL(image, Astro.url.origin).href}
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <script>
       // Efecto de desplazamiento suave para enlaces internos
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", e => {
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", (e) => {
           e.preventDefault();
           const href = anchor.getAttribute("href");
           if (!href) return;
@@ -47,23 +51,35 @@ const image = "/images/og-image.jpg";
           if (target) {
             target.scrollIntoView({
               behavior: "smooth",
-              block: "start"
+              block: "start",
             });
           }
         });
       });
     </script>
   </head>
-  <body class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-gray-100 antialiased">
+  <body
+    class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-gray-100 antialiased"
+  >
     <div class="min-h-screen flex flex-col">
       <Header />
 
-      <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+      <main
+        class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12"
+      >
         <div class="max-w-4xl mx-auto w-full">
-          <div class="relative">
-            <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg opacity-75 blur-lg group-hover:opacity-100 transition duration-300"></div>
-            <div class="relative bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 rounded-lg shadow-2xl">
-              <div class="scanlines p-2">
+          <!-- Contenido fuera del efecto de scanlines -->
+          <slot name="outside-scanlines" />
+
+          <div class="relative mt-8">
+            <div
+              class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-600 opacity-75 blur-lg group-hover:opacity-100 transition duration-300"
+            >
+            </div>
+            <div
+              class="relative bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 shadow-2xl"
+            >
+              <div class="scanlines p-6 md:p-8">
                 <slot />
               </div>
             </div>
@@ -74,9 +90,14 @@ const image = "/images/og-image.jpg";
       <footer class="py-8 text-center text-gray-400 text-sm">
         <div class="container mx-auto px-4">
           <div class="border-t border-gray-800 pt-6">
-            <p>© {new Date().getFullYear()} Cenizas del Umbral. Todos los derechos reservados.</p>
+            <p>
+              © {new Date().getFullYear()} Cenizas del Umbral. Todos los derechos
+              reservados.
+            </p>
             <p class="mt-2">
-              Creado con <span class="text-cyan-400">Astro</span> y <span class="text-purple-400">Tailwind CSS</span>
+              Creado con <span class="text-cyan-400">Astro</span> y <span
+                class="text-purple-400">Tailwind CSS</span
+              >
             </p>
           </div>
         </div>

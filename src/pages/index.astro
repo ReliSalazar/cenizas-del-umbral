@@ -3,12 +3,48 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <h1 class="text-3xl font-bold text-cyan-300">Micro-Relatos</h1>
-  <ul class="space-y-4">
-    <li>
-      <a href="/relatos/lambda-3" class="text-lg text-gray-300 hover:text-cyan-300 transition-colors">
-        Lambda-3
-      </a>
-    </li>
-  </ul>
+  <div class="max-w-4xl mx-auto">
+    <div
+      class="bg-gray-900/60 backdrop-blur-sm border border-gray-800/50 p-6 md:p-8 shadow-xl"
+    >
+      <h1 class="text-3xl font-bold text-cyan-300 mb-8 text-center">
+        El Umbral del Polvo
+      </h1>
+      <ul class="space-y-6">
+        <li class="group">
+          <a
+            href="/relatos/lambda-3"
+            class="block p-4 transition-all duration-300
+                   bg-gray-800/50 hover:bg-gray-800/80
+                   border border-gray-700/50 hover:border-cyan-500/50
+                   hover:shadow-lg hover:shadow-cyan-500/10"
+          >
+            <div class="flex items-center justify-between">
+              <div>
+                <h2
+                  class="text-xl font-medium text-cyan-300 group-hover:text-cyan-200 transition-colors"
+                >
+                  Lambda-3
+                </h2>
+                <p class="text-sm text-gray-400 mt-1">
+                  Última transmisión: [ARCHIVO RECUPERADO]
+                </p>
+              </div>
+              <span
+                class="text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                →
+              </span>
+            </div>
+          </a>
+        </li>
+      </ul>
+
+      <div class="mt-12 pt-6 border-t border-gray-800 text-center">
+        <p class="text-gray-400 text-sm">
+          Más relatos en desarrollo. Vuelve pronto para nuevas historias.
+        </p>
+      </div>
+    </div>
+  </div>
 </BaseLayout>

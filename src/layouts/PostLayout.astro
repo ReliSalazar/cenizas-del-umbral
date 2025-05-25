@@ -14,13 +14,19 @@ const title = "Cenizas del Umbral | Relato";
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-900 to-gray-950 text-gray-200 antialiased">
+  <body
+    class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-900 to-gray-950 text-gray-200 antialiased"
+  >
     <div class="min-h-screen flex flex-col">
       <Header />
-      <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+      <main
+        class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12"
+      >
         <div class="max-w-3xl mx-auto w-full">
           <div class="relative">
-            <div class="relative bg-gray-900/60 backdrop-blur-sm border border-gray-800/50 rounded-lg p-6 md:p-10 shadow-xl">
+            <div
+              class="relative bg-gray-900/60 backdrop-blur-sm border border-gray-800/50 p-6 md:p-10 shadow-xl"
+            >
               <article class="prose prose-invert max-w-none">
                 <slot />
               </article>
