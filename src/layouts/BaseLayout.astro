@@ -67,9 +67,6 @@ const image = "/images/og-image.jpg";
   <body
     class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-gray-100 antialiased"
   >
-    <!-- Efecto de partículas -->
-    <div id="particles-js" class="fixed inset-0 -z-10 opacity-20"></div>
-
     <div class="min-h-screen flex flex-col">
       <Header />
 
@@ -110,49 +107,5 @@ const image = "/images/og-image.jpg";
         </div>
       </footer>
     </div>
-
-    <!-- Script para partículas -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"
-    ></script>
-    <script>
-      // Inicialización de partículas
-      document.addEventListener("DOMContentLoaded", () => {
-        if (typeof particlesJS !== "undefined") {
-          particlesJS("particles-js", {
-            particles: {
-              number: { value: 80, density: { enable: true, value_area: 800 } },
-              color: { value: "#00f7ff" },
-              shape: { type: "circle" },
-              opacity: { value: 0.5, random: true },
-              size: { value: 3, random: true },
-              line_linked: {
-                enable: true,
-                distance: 150,
-                color: "#6e00ff",
-                opacity: 0.4,
-                width: 1,
-              },
-              move: {
-                enable: true,
-                speed: 2,
-                direction: "none",
-                random: true,
-                straight: false,
-                out_mode: "out",
-              },
-            },
-            interactivity: {
-              detect_on: "canvas",
-              events: {
-                onhover: { enable: true, mode: "repulse" },
-                onclick: { enable: true, mode: "push" },
-                resize: true,
-              },
-            },
-            retina_detect: true,
-          });
-        }
-      });
-    </script>
   </body>
 </html>

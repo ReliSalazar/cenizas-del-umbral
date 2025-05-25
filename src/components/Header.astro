@@ -122,20 +122,17 @@ const { title = "Cenizas del Umbral" } = Astro.props;
       if (mobileMenuButton && mobileMenu) {
         mobileMenuButton.addEventListener("click", () => {
           const isExpanded =
-            mobileMenuButton.getAttribute("aria-expanded") === "true" || false;
-          mobileMenuButton.setAttribute("aria-expanded", !isExpanded);
+            mobileMenuButton.getAttribute("aria-expanded") === "true";
+          // Convertir el booleano a string
+          mobileMenuButton.setAttribute("aria-expanded", String(!isExpanded));
           mobileMenu.classList.toggle("hidden");
 
-          // Cambiar el icono
+          // Cambiar el icono (versión más segura con createElement)
           const icon = mobileMenuButton.querySelector("svg");
           if (icon) {
-            if (!isExpanded) {
-              icon.innerHTML =
-                '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
-            } else {
-              icon.innerHTML =
-                '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
-            }
+            icon.innerHTML = isExpanded
+              ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />'
+              : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
           }
         });
       }
@@ -144,15 +141,7 @@ const { title = "Cenizas del Umbral" } = Astro.props;
 </header>
 
 <!-- Efecto de línea decorativa -->
-<div
-  class="relative
-  <div class="
-  absolute
-  inset-0
-  flex
-  items-center"
-  aria-hidden="true"
->
+<div class="absolute inset-0 flex items-center" aria-hidden="true">
   <div class="w-full border-t border-gray-800"></div>
 </div>
 <div class="relative flex justify-center">
