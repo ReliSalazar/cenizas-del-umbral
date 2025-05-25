@@ -129,22 +129,38 @@ const lines = [
     ],
   },
 ];
+
 ---
 
 <PostLayout>
-  <article class="prose prose-invert max-w-none">
-    <p><strong>[Archivo recuperado // Última transmisión: Lambda-3]</strong></p>
-    <blockquote>
-      <p>
-        <strong>Unidad Lambda-3</strong><br />
-        <strong>Fecha desconocida</strong><br />
-        <strong>Transmisión clase: Epitafio (autoactivada)</strong>
+  <div class="prose prose-invert max-w-none">
+    <header class="mb-8">
+      <p class="text-sm text-gray-400 mb-2">[Archivo recuperado // Última transmisión: Lambda-3]</p>
+      <h1 class="text-3xl md:text-4xl font-bold text-cyan-300 mb-4">Lambda-3</h1>
+      <div class="border-l-2 border-cyan-500 pl-4 my-6">
+        <p class="text-gray-300">
+          <span class="block font-bold">Unidad Lambda-3</span>
+          <span class="block text-sm">Fecha desconocida</span>
+          <span class="block text-xs text-gray-400 italic">Transmisión clase: Epitafio (autoactivada)</span>
+        </p>
+      </div>
+    </header>
+
+    <div class="space-y-6">
+      <p class="text-gray-300 leading-relaxed">
+        Aún mantengo la señal. Las balizas están en loop...
       </p>
-    </blockquote>
-    <p>Aún mantengo la señal. Las balizas están en loop...</p>
 
-    <h2 class="glitch text-cyan-400 my-4">efecto glitch</h2>
+      <div class="my-8">
+        <Terminal client:load lines={lines} lastPrompt />
+      </div>
 
-    <Terminal client:load class="my-4" lines={lines} lastPrompt />
-  </article>
+      <div class="mt-12 pt-6 border-t border-gray-800">
+        <h2 class="text-2xl font-bold text-cyan-300 mb-4">Continuará...</h2>
+        <p class="text-gray-400 text-sm">
+          Este relato forma parte de la colección "Cenizas del Umbral".
+        </p>
+      </div>
+    </div>
+  </div>
 </PostLayout>
