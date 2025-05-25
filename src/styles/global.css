@@ -1,32 +1,204 @@
 @import "tailwindcss";
 
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Grotesk:wght@400;500;700&display=swap");
+
+:root {
+  --neon-blue: #00f7ff;
+  --neon-pink: #ff00ff;
+  --cyber-purple: #6e00ff;
+  --dark-bg: #0a0a1a;
+  --darker-bg: #050510;
+  --text-primary: #f0f0ff;
+  --text-secondary: #a0a0c0;
+}
+
 html {
   scroll-behavior: smooth;
-  height: 100vh;
+  height: 100%;
+  font-family: "Space Grotesk", sans-serif;
+  background: var(--darker-bg);
+  color: var(--text-primary);
 }
 
 body {
-  height: 100%;
+  min-height: 100vh;
+  background: radial-gradient(
+    circle at center,
+    var(--dark-bg) 0%,
+    var(--darker-bg) 100%
+  );
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Share Tech Mono", monospace;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+  color: var(--neon-blue);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+a {
+  color: var(--neon-blue);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+a:hover {
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px var(--neon-pink);
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(34, 211, 238, 0.5);
+  width: 10px;
+  height: 10px;
 }
 
-.glitch {
-  animation: glitch 1s linear infinite;
+::-webkit-scrollbar-track {
+  background: var(--darker-bg);
 }
-@keyframes glitch {
+
+::-webkit-scrollbar-thumb {
+  background: var(--cyber-purple);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-blue);
+}
+
+/* Efecto de escaneo */
+@keyframes scanline {
   0% {
-    text-shadow: 2px 0 #ff00ff;
-  }
-  20% {
-    text-shadow: -2px 0 #00ffff;
+    transform: translateY(-100%);
   }
   100% {
-    text-shadow: none;
+    transform: translateY(100%);
   }
+}
+
+.scanlines {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.scanlines::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 50%,
+    rgba(0, 247, 255, 0.05) 50%,
+    rgba(0, 247, 255, 0.05) 100%
+  );
+  background-size: 100% 4px;
+  z-index: 1;
+  pointer-events: none;
+  animation: scanline 4s linear infinite;
+  background-attachment: fixed;
+}
+
+/* Asegurarse de que el contenido esté por encima de las líneas */
+.scanlines > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Efecto de brillo en los bordes */
+.glow-border {
+  position: relative;
+  box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--cyber-purple);
+  transition: all 0.3s ease;
+}
+
+.glow-border:hover {
+  box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--cyber-purple);
+}
+
+/* Efecto de texto parpadeante */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.blink {
+  animation: blink 2s infinite;
+}
+
+/* Efecto de texto glitch */
+.glitch {
+  position: relative;
+  animation: glitch 5s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 var(--neon-pink),
+      -0.05em -0.025em 0 var(--neon-blue);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 var(--neon-pink),
+      -0.05em -0.025em 0 var(--neon-blue);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 var(--neon-pink),
+      0.025em 0.025em 0 var(--neon-blue);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 var(--neon-pink),
+      0.025em 0.025em 0 var(--neon-blue);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 var(--neon-pink), 0.05em 0 0 var(--neon-blue),
+      0 -0.05em 0 var(--cyber-purple);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 var(--neon-pink), 0.05em 0 0 var(--neon-blue),
+      0 -0.05em 0 var(--cyber-purple);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 var(--neon-pink),
+      -0.025em -0.025em 0 var(--neon-blue),
+      -0.025em -0.05em 0 var(--cyber-purple);
+  }
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 640px) {
+  html {
+    font-size: 90%;
+  }
+
+  .scanlines::before {
+    animation-duration: 5s;
+  }
+}
+
+/* Transiciones suaves */
+.transition-all {
+  transition: all 0.3s ease-in-out;
 }
