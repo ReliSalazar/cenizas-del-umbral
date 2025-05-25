@@ -46,22 +46,14 @@ const image = "/images/og-image.jpg";
 
     <!-- Scripts para efectos -->
     <script>
-      // Efecto de carga suave
-      document.documentElement.classList.add("opacity-0");
-      window.addEventListener("load", () => {
-        document.documentElement.classList.remove("opacity-0");
-        document.documentElement.classList.add(
-          "transition-opacity",
-          "duration-500",
-          "ease-in-out"
-        );
-      });
-
       // Efecto de desplazamiento suave para enlaces internos
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
+        anchor.addEventListener("click", (e) => {
           e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
+          const href = anchor.getAttribute("href");
+          if (!href) return;
+
+          const target = document.querySelector(href);
           if (target) {
             target.scrollIntoView({
               behavior: "smooth",
