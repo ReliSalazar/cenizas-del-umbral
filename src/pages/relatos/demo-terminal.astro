@@ -1,0 +1,87 @@
+---
+import PostLayout from "../../layouts/PostLayout.astro";
+import Terminal from "../../components/Terminal.svelte";
+---
+
+<PostLayout>
+  <div class="prose prose-invert max-w-none">
+    <header class="mb-8">
+      <p class="text-sm text-text-secondary mb-2">
+        [Archivo recuperado // Última transmisión: Lambda-3]
+      </p>
+      <h1 class="text-3xl md:text-4xl font-bold text-primary-accent mb-4">
+        Lambda-3
+      </h1>
+      <div class="border-l-2 border-primary-accent pl-4 my-6">
+        <p class="text-text-primary">
+          <span class="block">Unidad Lambda-3</span><span class="block"
+            >Fecha desconocida</span
+          ><span class="block">Transmisión clase: Epitafio (autoactivada)</span>
+        </p>
+      </div>
+    </header>
+
+    <div class="space-y-6">
+      <p class="text-text-primary leading-relaxed">
+        [Archivo recuperado // Última transmisión: Lambda-3]
+      </p>
+      <p class="text-text-primary leading-relaxed">Aún puedo escribir.</p>
+      <p class="text-text-primary leading-relaxed">
+        Eso significa que el sistema no ha colapsado del todo.
+      </p>
+      <p class="text-text-primary leading-relaxed">
+        O que todavía no me he dado cuenta.
+      </p>
+      <p class="text-text-primary leading-relaxed">Me llamo **Iria Salvat**.</p>
+      <p class="text-text-primary leading-relaxed">
+        Suboficial de *cartografía profunda*.
+      </p>
+      <p class="text-text-primary leading-relaxed">
+        No tengo entrenamiento para tomar decisiones finales.
+      </p>
+
+      <div class="my-8">
+        <Terminal
+          client:load
+          lines={[
+            {
+              parts: [
+                {
+                  text: "Inicializando diagnóstico…",
+                  class: "text-text-primary ",
+                },
+              ],
+              delayAfter: 300,
+            },
+            {
+              parts: [
+                { text: "............", class: "text-text-primary pulse" },
+              ],
+            },
+            {
+              parts: [
+                {
+                  text: "Advertencia: múltiples fallos detectados.",
+                  class: "text-red-500 ",
+                },
+              ],
+            },
+            {
+              parts: [
+                { text: "No queda tripulación.", class: "text-text-primary " },
+              ],
+              delayAfter: 800,
+            },
+            {
+              parts: [
+                { text: "No quedan objetivos.", class: "text-text-primary " },
+              ],
+              delayAfter: 1200,
+            },
+          ]}
+          lastPrompt
+        />
+      </div>
+    </div>
+  </div>
+</PostLayout>

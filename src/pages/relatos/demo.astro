@@ -1,0 +1,164 @@
+---
+import PostLayout from "../../layouts/PostLayout.astro";
+import Terminal from "../../components/Terminal.svelte";
+
+const lines = [
+  {
+    parts: [
+      {
+        text: "Estado del sistema: ",
+        class: "text-primary-accent font-bold",
+        speed: 30,
+      },
+    ],
+    delayAfter: 200,
+  },
+  {
+    parts: [
+      {
+        text: "▸ Memoria: 32GB ",
+        class: "font-mono",
+        speed: 20,
+      },
+      {
+        text: "[OK]",
+        class: "text-green-500 font-bold",
+        animation: "pulse",
+        speed: 30,
+      },
+    ],
+  },
+  {
+    parts: [
+      {
+        text: "▸ Red: 192.168.1.42 ",
+        class: "font-mono",
+        speed: 20,
+      },
+      {
+        text: "[ACTIVO]",
+        class: "text-green-500 blink",
+        speed: 30,
+      },
+    ],
+  },
+  {
+    parts: [
+      {
+        text: "▸ Seguridad: ",
+        class: "font-mono",
+        speed: 20,
+      },
+      {
+        text: "NIVEL 4",
+        class: "text-tertiary-accent",
+        speed: 40,
+        animation: "pulse",
+      },
+    ],
+    delayAfter: 800,
+  },
+  {
+    parts: [
+      {
+        text: "¡Sistema operativo! ",
+        class: "text-primary-accent font-bold",
+        speed: 30,
+      },
+      {
+        text: "✔",
+        class: "text-green-500",
+        speed: 100,
+        animation: "blink",
+      },
+    ],
+    delayAfter: 1000,
+  },
+  {
+    parts: [
+      {
+        text: "..........",
+        class: "font-mono animate-pulse",
+        speed: 100,
+      },
+    ],
+  },
+  {
+    parts: [
+      {
+        text: "ALERTA",
+        class: "text-red-500 font-bold",
+        speed: 30,
+      },
+    ],
+  },
+  {
+    parts: [
+      {
+        text: "ANOMALIA EN EL SISTEMA",
+        class: "text-red-500 font-bold",
+        speed: 80,
+      },
+    ],
+  },
+  {
+    parts: [
+      {
+        text: "SISTEMA COMPROMETIDO",
+        class: "text-red-500 font-bold",
+        speed: 50,
+      },
+    ],
+  },
+  {
+    parts: [
+      {
+        text: "SISTEMA COMPROMETIDO",
+        class: "text-red-500 font-bold glitch",
+        speed: 50,
+      },
+    ],
+  },
+  {
+    parts: [
+      {
+        text: "[... transmisión interrumpida]",
+        class: "text-tertiary-accent font-bold",
+        speed: 0,
+      },
+    ],
+  },
+];
+---
+
+<PostLayout>
+  <div class="prose prose-invert max-w-none">
+    <header class="mb-8">
+      <p class="text-sm text-text-secondary mb-2">
+        [Archivo recuperado // Última transmisión: Lambda-3]
+      </p>
+      <h1 class="text-3xl md:text-4xl font-bold text-primary-accent mb-4">
+        Lambda-3
+      </h1>
+      <div class="border-l-2 border-primary-accent pl-4 my-6">
+        <p class="text-text-primary">
+          <span class="block font-bold">Unidad Lambda-3</span>
+          <span class="block text-sm">Fecha desconocida</span>
+          <span class="block text-xs text-text-secondary italic"
+            >Transmisión clase: Epitafio (autoactivada)</span
+          >
+        </p>
+      </div>
+    </header>
+
+    <div class="space-y-6">
+      <p class="text-text-primary leading-relaxed">
+        Aún mantengo la señal. Las balizas están en loop...
+      </p>
+
+      <div class="my-8">
+        <Terminal client:load lines={lines} lastPrompt />
+      </div>
+    </div>
+  </div>
+</PostLayout>
