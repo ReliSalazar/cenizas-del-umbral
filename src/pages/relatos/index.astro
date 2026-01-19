@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="max-w-4xl mx-auto">
+    <div
+      class="bg-card-bg/80 backdrop-blur-sm border border-border-color p-6 md:p-8 shadow-xl"
+    >
+      <h1 class="text-3xl font-bold text-primary-accent mb-8 text-center">
+        Todos los Relatos
+      </h1>
+      <ul class="space-y-6">
+        <li class="group">
+          <a
+            href="/relatos/lambda-3"
+            class="block p-4 transition-all duration-300 bg-card-bg/60 hover:bg-card-bg/80 border border-border-color hover:border-primary-accent/50 hover:shadow-lg hover:shadow-highlight"
+          >
+            <div class="flex items-center justify-between">
+              <div>
+                <h2
+                  class="text-xl font-medium text-primary-accent group-hover:text-secondary-accent transition-colors"
+                >
+                  Lambda-3
+                </h2>
+                <p class="text-sm text-text-secondary mt-1">
+                  Última transmisión: [ARCHIVO RECUPERADO]
+                </p>
+              </div>
+              <span
+                class="text-secondary-accent opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                →
+              </span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</BaseLayout>
