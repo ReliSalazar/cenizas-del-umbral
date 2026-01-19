@@ -10,7 +10,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       <h1 class="text-3xl font-bold text-primary-accent mb-8 text-center">
         Todos los Relatos
       </h1>
-      <ul class="space-y-6">
+      <ul
+        class="space-y-6 max-h-[60vh] overflow-y-auto pr-2 pb-4 scrollbar-thin scrollbar-thumb-primary-accent scrollbar-track-card-bg"
+      >
         <li class="group">
           <a
             href="/relatos/lambda-3"
